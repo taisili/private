@@ -82,6 +82,7 @@
                     <target>${java.version}</target>
                 </configuration>
             </plugin>
+
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
@@ -94,6 +95,30 @@
                     </excludes>
                 </configuration>
             </plugin>
+
+            <!-- OWASP Dependency-Check SCA плагин -->
+            <plugin>
+                <groupId>org.owasp</groupId>
+                <artifactId>dependency-check-maven</artifactId>
+                <version>12.1.0</version>
+                <configuration>
+                    <!-- Формат отчёта: HTML -->
+                    <formats>
+                        <format>HTML</format>
+                    </formats>
+                    <!-- Путь к файлу с исключениями -->
+                    <suppressionFile>${project.basedir}/dependency-check-suppressions.xml</suppressionFile>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>check</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <!-- конец блока OWASP Dependency-Check -->
+
         </plugins>
     </build>
 

@@ -42,7 +42,6 @@ jobs:
     # запускаем в контейнере с semgrep CE
     container:
       image: semgrep/semgrep
-
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4

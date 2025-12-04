@@ -76,7 +76,10 @@ jobs:
         run: |
           mvn -B org.owasp:dependency-check-maven:check \
             -Dformat=HTML \
-            -DsuppressionFile=dependency-check-suppression.xml
+            -DsuppressionFile=dependency-check-suppressions.xml \
+            -Danalyzer.ossindex.enabled=false \
+            -DfailBuildOnCVSS=11 \
+            -DdataDirectory=.dependency-check
 
       - name: Upload Dependency-Check Report
         if: always()

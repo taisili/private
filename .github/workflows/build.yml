@@ -88,7 +88,7 @@ jobs:
           name: dependency-check-report
           path: target/dependency-check-report.html
 
-    zap_baseline:
+  zap_baseline:
     name: ZAP Baseline Scan
     runs-on: ubuntu-latest
     needs: build-job
@@ -132,7 +132,7 @@ jobs:
           rules_file_name: "zap-rules.tsv"
           cmd_options: "-a"
           allow_issue_writing: false
-          fail_action: false       
+          fail_action: false
 
       - name: Stop app
         if: always()
@@ -149,7 +149,6 @@ jobs:
             report_md.md
             report_json.json
           if-no-files-found: ignore
-
 
   zap_api_scan:
     name: ZAP API Scan
@@ -191,12 +190,12 @@ jobs:
       - name: Run ZAP API Scan
         uses: zaproxy/action-api-scan@v0.10.0
         with:
-          target: "http://localhost:8080/v3/api-docs" 
-          format: "openapi"                           
+          target: "http://localhost:8080/v3/api-docs"
+          format: "openapi"
           rules_file_name: "zap-rules.tsv"
           cmd_options: "-a"
-          allow_issue_writing: false   
-          fail_action: false            
+          allow_issue_writing: false
+          fail_action: false
 
       - name: Stop app
         if: always()
@@ -213,4 +212,3 @@ jobs:
             report_md.md
             report_json.json
           if-no-files-found: ignore
-

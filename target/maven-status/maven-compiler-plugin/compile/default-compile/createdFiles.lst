@@ -1,0 +1,17 @@
+ru\mtuci\coursemanagement\service\CourseService.class
+ru\mtuci\coursemanagement\CourseManagementApplication.class
+ru\mtuci\coursemanagement\controller\XmlController.class
+ru\mtuci\coursemanagement\controller\AuthController.class
+ru\mtuci\coursemanagement\service\PluginLoader.class
+ru\mtuci\coursemanagement\model\User.class
+ru\mtuci\coursemanagement\controller\StudentController.class
+ru\mtuci\coursemanagement\model\Student.class
+ru\mtuci\coursemanagement\controller\IndexController.class
+ru\mtuci\coursemanagement\controller\CourseController.class
+ru\mtuci\coursemanagement\controller\ProxyController.class
+ru\mtuci\coursemanagement\repository\CourseRepository.class
+ru\mtuci\coursemanagement\config\WebConfig.class
+ru\mtuci\coursemanagement\repository\StudentRepository.class
+ru\mtuci\coursemanagement\service\UserService.class
+ru\mtuci\coursemanagement\model\Course.class
+ru\mtuci\coursemanagement\repository\UserRepository.class

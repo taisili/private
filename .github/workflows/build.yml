@@ -70,7 +70,7 @@ jobs:
         uses: actions/setup-java@v4
         with:
           distribution: temurin
-          java-version: "21" # или 17 — главное совпадает с pom/сборкой
+          java-version: "17"
 
       - name: Run Dependency-Check
         run: |

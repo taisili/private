@@ -133,6 +133,7 @@ jobs:
           cmd_options: "-a"
           allow_issue_writing: false
           fail_action: false
+          artifact_name: "zap-baseline-internal"
 
       - name: Stop app
         if: always()
@@ -196,6 +197,8 @@ jobs:
           cmd_options: "-a"
           allow_issue_writing: false
           fail_action: false
+          artifact_name: "zap-api-internal"
+
       - name: Stop app
         if: always()
         run: |

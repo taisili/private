@@ -196,7 +196,6 @@ jobs:
           cmd_options: "-a"
           allow_issue_writing: false
           fail_action: false
-
       - name: Stop app
         if: always()
         run: |

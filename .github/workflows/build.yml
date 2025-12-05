@@ -88,11 +88,11 @@ jobs:
           name: dependency-check-report
           path: target/dependency-check-report.html
 
-  zap_baseline:
+    zap_baseline:
     name: ZAP Baseline Scan
     runs-on: ubuntu-latest
     needs: build-job
-    continue-on-error: true # <<< не падать при уязвимостях
+    continue-on-error: true  
 
     steps:
       - name: Checkout repository
@@ -131,6 +131,8 @@ jobs:
           target: "http://localhost:8080/"
           rules_file_name: "zap-rules.tsv"
           cmd_options: "-a"
+          allow_issue_writing: false
+          fail_action: false       
 
       - name: Stop app
         if: always()
@@ -143,17 +145,17 @@ jobs:
         with:
           name: zap-baseline-report
           path: |
-            zap-baseline-report.html
-            zap-baseline-report.md
-            zap-baseline-report.xml
-            zap-baseline-report.json
+            report_html.html
+            report_md.md
+            report_json.json
           if-no-files-found: ignore
+
 
   zap_api_scan:
     name: ZAP API Scan
     runs-on: ubuntu-latest
     needs: build-job
-    continue-on-error: true # <<< не падать при уязвимостях
+    continue-on-error: true
 
     steps:
       - name: Checkout repository
@@ -189,9 +191,12 @@ jobs:
       - name: Run ZAP API Scan
         uses: zaproxy/action-api-scan@v0.10.0
         with:
-          openapi: "http://localhost:8080/v3/api-docs"
+          target: "http://localhost:8080/v3/api-docs" 
+          format: "openapi"                           
           rules_file_name: "zap-rules.tsv"
           cmd_options: "-a"
+          allow_issue_writing: false   
+          fail_action: false            
 
       - name: Stop app
         if: always()
@@ -204,8 +209,8 @@ jobs:
         with:
           name: zap-api-report
           path: |
-            zap-api-scan-report.html
-            zap-api-scan-report.md
-            zap-api-scan-report.xml
-            zap-api-scan-report.json
+            report_html.html
+            report_md.md
+            report_json.json
           if-no-files-found: ignore
+
